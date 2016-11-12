@@ -97,14 +97,14 @@ class MainHandler(webapp2.RequestHandler):
                             <td><label for="password">Password</label></td>
                             <td>
                                 <input name="password" type="password" required="">
-                                <span class="error">%(passworderror)s</span>
+                                <span class="error"></span>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="verify">Verify Password</label></td>
                             <td>
                                 <input name="verify" type="password" required="">
-                                <span class="error"></span>
+                                <span class="error">%(passworderror)s</span>
                             </td>
                         </tr>
                         <tr>
@@ -140,7 +140,7 @@ class MainHandler(webapp2.RequestHandler):
             emailerror = ""
         else:
             emailerror = "Email is not valid, please check"
-            
+
         username = str(self.request.get('username'))
         username = escape_htmls(username)
         if re.compile("^\w+\s\w+$").match(username):
